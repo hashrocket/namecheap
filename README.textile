@@ -8,3 +8,8 @@ require 'lib/namecheap'
 
 namecheap = Namecheap.new
 namecheap.is_domain_availble? 'hashrocket.com' # => false
+
+h2. Contributors
+
+"Corey Grusden":http://coreygrusden.com
+"Big Tiger:http://bigtiger.github.com
