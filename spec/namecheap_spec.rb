@@ -5,12 +5,18 @@ require 'mocha'
 describe "NamecheapAPI Wrapper"  do
   describe "initializating settings" do
     describe "with defaults" do 
-      it "shoud contain a username" do
+      it "should contain a username" do
 	namecheap = Namecheap.new
 	namecheap.send(:username).should == 'apiuser'
       end	  
-      it "shoud contain a key"
-      it "shoud contain a client_ip"
+      it "should contain a key" do
+	namecheap = Namecheap.new
+	namecheap.send(:key).should == 'apikey'
+      end
+      it "should contain a client_ip" do
+	namecheap = Namecheap.new
+	namecheap.send(:client_ip).should == '127.0.0.1'
+      end
     end
 
     describe "with defaults overidden" do 
