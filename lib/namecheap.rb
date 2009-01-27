@@ -44,12 +44,12 @@ class NamecheapDomainCheckResponse < NamecheapResponse
 end
 
 class Namecheap
-
+  attr_reader :username
   def initialize(options = {})
-    # TODO: Pull out to YAML settings file
-    @apikey = options[:apikey] || "APIKEY"
-    @apiuser = options[:apiuser] || "apiuser"
-    @client_ip = options[:client_ip] || "0.0.0.0"
+    config = YAML.load_file("#{File.dirname(__FILE__)}/namecheap.yml").symbolize_keys!
+    @key = options[:key] || config[:key]
+    @username = options[:username] || config[:username]
+    @client_ip = options[:client_ip] || config[:client_ip]
   end
 
   def is_domain_available?(domain)
@@ -65,7 +65,7 @@ class Namecheap
   protected
   
   def do_query(api_method, options)
-    query = "https://api.sandbox.namecheap.com/xml.response?ApiUser=#{@apiuser}&ApiKey=#{@apikey}&UserName=#{@apiuser}&ClientIp=#{@client_ip}&Command=#{api_method}"
+    query = "https://api.sandbox.namecheap.com/xml.response?ApiUser=#{@username}&ApiKey=#{@key}&UserName=#{@username}&ClientIp=#{@client_ip}&Command=#{api_method}"
     query += options
     HTTParty.get(query)
   end

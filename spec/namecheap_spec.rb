@@ -3,6 +3,22 @@ require File.dirname(__FILE__) + '/../lib/namecheap'
 require 'mocha'
 
 describe "NamecheapAPI Wrapper"  do
+  describe "initializating settings" do
+    describe "with defaults" do 
+      it "shoud contain a username" do
+      end	  
+      it "shoud contain a key"
+      it "shoud contain a client_ip"
+    end
+    describe "with defaults overidden" do 
+      it "shoud contain a overidden username" do
+	namecheap = Namecheap.new(:username => 'testuser')
+	namecheap.send(:username).should == 'testuser'
+      end	  
+      it "shoud contain a key"
+      it "shoud contain a client_ip"
+    end
+  end
 
   describe "Attempt to connect with bad credentials" do
     it "should report an error on erroneous account information" do
