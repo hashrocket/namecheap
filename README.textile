@@ -4,10 +4,14 @@ Allow the ability to check domain availability through namecheap.com API.
 
 h2. Usage
 
+<pre>
+  <code>
 require 'lib/namecheap'
 
 namecheap = Namecheap.new
 namecheap.is_domain_availble? 'hashrocket.com' # => false
+  </code>
+</pre>
 
 h2. Contributors
 
