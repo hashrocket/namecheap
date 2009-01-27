@@ -46,9 +46,10 @@ end
 class Namecheap
 
   def initialize(options = {})
-    @apikey = options[:apikey] || "MYKEY"
-    @apiuser = options[:apiuser] || "jremsikjr"
-    @client_ip = options[:client_ip] || "121.22.123.22"
+    # TODO: Pull out to YAML settings file
+    @apikey = options[:apikey] || "APIKEY"
+    @apiuser = options[:apiuser] || "apiuser"
+    @client_ip = options[:client_ip] || "0.0.0.0"
   end
 
   def is_domain_available?(domain)
