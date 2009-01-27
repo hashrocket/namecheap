@@ -44,7 +44,7 @@ class NamecheapDomainCheckResponse < NamecheapResponse
 end
 
 class Namecheap
-  attr_reader :username
+  attr_reader :username, :key, :client_ip
   def initialize(options = {})
     config = YAML.load_file("#{File.dirname(__FILE__)}/namecheap.yml").symbolize_keys!
     @key = options[:key] || config[:key]
